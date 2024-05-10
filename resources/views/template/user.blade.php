@@ -11,7 +11,7 @@
 
 <body>
     @include('components.navbar')
-    <div class="mx-16 mb-56">
+    <div class=" mb-56">
         @yield('content')
     </div>
     @include('components.footer')
