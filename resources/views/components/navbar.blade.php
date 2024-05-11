@@ -1,44 +1,45 @@
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Mobile toggle
-            const navbarToggle = document.querySelector("[data-collapse-toggle='navbar-dropdown']");
-            const navbarMenu = document.getElementById("navbar-dropdown");
-            navbarToggle.addEventListener("click", function() {
-                navbarMenu.classList.toggle("hidden");
-            });
+document.addEventListener("DOMContentLoaded", function() {
+    // Mobile toggle
+    const navbarToggle = document.querySelector("[data-collapse-toggle='navbar-dropdown']");
+    const navbarMenu = document.getElementById("navbar-dropdown");
+    navbarToggle.addEventListener("click", function() {
+        navbarMenu.classList.toggle("hidden");
+    });
 
-            // Fungsi untuk menangani perilaku dropdown
-            function handleDropdown(dropdownToggle, dropdownMenu) {
-                dropdownToggle.addEventListener("mouseenter", function() {
-                    dropdownMenu.classList.remove("hidden");
-                });
-                dropdownToggle.addEventListener("mouseleave", function() {
-                    dropdownMenu.classList.add("hidden");
-                });
-                dropdownMenu.addEventListener("mouseenter", function() {
-                    dropdownMenu.classList.remove("hidden");
-                });
-                dropdownMenu.addEventListener("mouseleave", function() {
-                    dropdownMenu.classList.add("hidden");
-                });
-            }
-
-            // Tentang kami
-            const dropdownToggle = document.getElementById("dropdownNavbarLink");
-            const dropdownMenu = document.getElementById("dropdownNavbar");
-            handleDropdown(dropdownToggle, dropdownMenu);
-
-            // Akademik dropdown
-            const dropdownToggle2 = document.getElementById("dropdownNavbarLink2");
-            const dropdownMenu2 = document.getElementById("dropdownNavbar2");
-            handleDropdown(dropdownToggle2, dropdownMenu2);
-
-            // Program studi dropdown
-            const dropdownToggle3 = document.getElementById("dropdownNavbarLink3");
-            const dropdownMenu3 = document.getElementById("dropdownNavbar3");
-            handleDropdown(dropdownToggle3, dropdownMenu3);
+    // Fungsi untuk menangani perilaku dropdown
+    function handleDropdown(dropdownToggle, dropdownMenu) {
+        dropdownToggle.addEventListener("mouseover", function() {
+            dropdownMenu.classList.remove("hidden");
         });
+        dropdownToggle.addEventListener("mouseout", function() {
+            dropdownMenu.classList.add("hidden");
+        });
+        dropdownMenu.addEventListener("mouseover", function() {
+            dropdownMenu.classList.remove("hidden");
+        });
+        dropdownMenu.addEventListener("mouseout", function() {
+            dropdownMenu.classList.add("hidden");
+        });
+    }
+
+    // Tentang kami
+    const dropdownToggle = document.getElementById("dropdownNavbarLink");
+    const dropdownMenu = document.getElementById("dropdownNavbar");
+    handleDropdown(dropdownToggle, dropdownMenu);
+
+    // Akademik dropdown
+    const dropdownToggle2 = document.getElementById("dropdownNavbarLink2");
+    const dropdownMenu2 = document.getElementById("dropdownNavbar2");
+    handleDropdown(dropdownToggle2, dropdownMenu2);
+
+    // Program studi dropdown
+    const dropdownToggle3 = document.getElementById("dropdownNavbarLink3");
+    const dropdownMenu3 = document.getElementById("dropdownNavbar3");
+    handleDropdown(dropdownToggle3, dropdownMenu3);
+});
+
     </script>
 
     <nav class="bg-primaryColor border-gray-200 py-3 z-0">
@@ -98,7 +99,7 @@
                         </div>
                     </div>
                     <li>
-                        <a href="#"
+                        <a href="/kesiswaan"
                             class="block py-2 px-3 text-white md:bg-transparent md:p-0 text-lg font-bold md:hover:text-secondaryColor"
                             aria-current="page">Kesiswaan</a>
                     </li>

@@ -12,6 +12,9 @@ Route::get('/sambutan-kepala-sekolah', function () {
 Route::get('/visi-misi', function () {
     return view('pages.user.tentang kami.visiMisi');
 });
+Route::get('/kesiswaan', function () {
+    return view('pages.user.kesiswaan.kesiswaan');
+});
 Route::get('/struktur-organisasi', function () {
     return view('pages.user.tentang kami.strukturOrganisasi');
 });
@@ -45,5 +48,29 @@ Route::get('/broadcasting', function () {
 
 //admin
 Route::get('/admin', function () {
-    return view('pages.admin.dashboard');
-})->name('admin');
+    return view('pages.admin.login');
+});
+Route::get('/admin/program-keahlian', function () {
+    return view('pages.admin.program keahlian.index');
+});
+Route::get('/admin/jadwal', function () {
+    return view('pages.admin.jadwal');
+});
+Route::get('/admin/berita', function () {
+    return view('pages.admin.berita');
+});
+Route::get('/admin/prestasi', function () {
+    return view('pages.admin.prestasi');
+});
+Route::get('/admin/tentang-kami', function () {
+    return view('pages.admin.tentangKami');
+});
+Route::get('/admin/kesiswaan', function () {
+    return view('pages.admin.kesiswaan');
+});
+Route::get('/admin/struktur-organisasi', function () {
+    return view('pages.admin.strukturOrganisasi');
+});
+Route::get('/admin/daftar-guru', function () {
+    return view('pages.admin.daftarGuru');
+});
