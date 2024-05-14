@@ -45,13 +45,38 @@ Route::get('/teknik-komputer-jaringan', function () {
 Route::get('/broadcasting', function () {
     return view('pages.user.program keahlian.broadcasting');
 });
+Route::get('/detail-berita', function () {
+    return view('pages.user.berita.detailBerita');
+});
+
 
 //admin
 Route::get('/admin', function () {
     return view('pages.admin.login');
 });
+Route::get('/admin/register', function () {
+    return view('pages.admin.register');
+});
 Route::get('/admin/program-keahlian', function () {
     return view('pages.admin.program keahlian.index');
+});
+Route::get('/admin/program-keahlian/akuntansi', function () {
+    return view('pages.admin.program keahlian.akuntansi');
+});
+Route::get('/admin/program-keahlian/menajemen-perkantoran', function () {
+    return view('pages.admin.program keahlian.menajemenPerkantoran');
+});
+Route::get('/admin/program-keahlian/perangkat-lunak', function () {
+    return view('pages.admin.program keahlian.perangkatLunak');
+});
+Route::get('/admin/program-keahlian/teknik-komputer-jaringan', function () {
+    return view('pages.admin.program keahlian.teknikKomputer');
+});
+Route::get('/admin/program-keahlian/broadcasting', function () {
+    return view('pages.admin.program keahlian.broadcasting');
+});
+Route::get('/admin/program-keahlian/pemasaran', function () {
+    return view('pages.admin.program keahlian.pemasaran');
 });
 Route::get('/admin/jadwal', function () {
     return view('pages.admin.jadwal');

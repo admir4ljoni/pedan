@@ -1,5 +1,5 @@
 <div id="popup-modal" tabindex="-1"
-class="hidden absolute top-1/2 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+class="hidden fixed top-1/2 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
 <div class="relative p-4 w-full max-w-md max-h-full">
     <div class="relative bg-white rounded-lg shadow-md border border-gray-200">
         <button type="button"

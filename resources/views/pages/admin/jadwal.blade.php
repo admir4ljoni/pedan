@@ -1,25 +1,14 @@
 @extends('template.adminSideBar')
-@section('title', 'Jadwal KBM')
+@section('title', 'Admin - Jadwal KBM')
 
 @section('content')
     <div class="">
 
         <div class="">
             <h2 class="text-2xl font-extrabold uppercase mb-4">jadwal</h2>
-            <button type="submit" id="tambahData"
-                class="mb-10 flex w-auto justify-center rounded-md bg-secondaryColor hover:bg-yellow-500 px-3 py-3 text-md font-bold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
-                <span class="mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                    </svg>
-                </span>
-                Tambah Jadwal Baru
-            </button>
+            <x-buttonAdmin id="tambahData" title="Tambah Jadwal Baru" />
 
+            {{-- modal hapus data --}}
             <x-alertHapus />
 
             {{-- modal tambah data --}}
@@ -32,7 +21,7 @@
             </x-modal>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
             <x-hasilUpload>
                 <x-slot name="title">
                     Jadwal KBM

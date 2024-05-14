@@ -1,24 +1,13 @@
 @extends('template.adminSideBar')
-@section('title', 'Berita')
+@section('title', 'Admin - Berita')
 
 @section('content')
     <div class="">
         <div class="">
             <h2 class="text-2xl font-extrabold uppercase mb-4">Berita</h2>
-            <button type="submit" id="tambahData"
-                class="mb-10 flex w-auto justify-center rounded-md bg-secondaryColor hover:bg-yellow-500 px-3 py-3 text-md font-bold leading-6 text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
-                <span class="mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                    </svg>
-                </span>
-                Tambah Berita Baru
-            </button>
+            <x-buttonAdmin id="tambahData" title="Tambah Berita Baru" />
 
+            {{-- modal hapus data --}}
             <x-alertHapus />
 
             {{-- modal tambah data --}}
@@ -59,41 +48,15 @@
 
         </div>
 
-        <div class="flex flex-col md:flex-row gap-4">
-            <div class="relative">
-                <img src="/assets/batikk.jpg" alt="prestasi smk negeri 1 pedan"
-                    class="rounded-lg w-full md:w-72 h-72 object-cover brightness-50" />
-                <p
-                    class="absolute left-0 right-0 bottom-14 flex justify-start text-white font-bold text-lg capitalize mx-3">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                <div class="absolute w-1/3 h-1 rounded-lg bg-secondaryColor bottom-12 md:bottom-10 left-0 right-0 mx-3">
-                </div>
-                <p class="absolute bottom-4 left-0 right-0 text-white text-md font-bold mt-2 mx-3 md:mt-0 md:bottom-2">1
-                    juni 2023</p>
-
-                <span class="absolute top-3 right-3 flex flex-row gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
-                        stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-edit bg-secondaryColor rounded-md p-1">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
-                        <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
-                        <path d="M16 5l3 3" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
-                        stroke="#ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-trash bg-red-700 rounded-md p-1">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M4 7l16 0" />
-                        <path d="M10 11l0 6" />
-                        <path d="M14 11l0 6" />
-                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                    </svg>
-                    </svg>
-                </span>
-            </div>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <x-cardAdmin1 image="/assets/batikk.jpg" title="Judul Berita 1" date="1 juni 2023">
+                <x-slot name="icon1">
+                    <x-iconEdit />
+                </x-slot>
+                <x-slot name="icon2">
+                    <x-iconHapus />
+                </x-slot>
+            </x-cardAdmin1>
         </div>
     </div>
 

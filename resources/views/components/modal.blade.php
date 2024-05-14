@@ -1,6 +1,6 @@
 <div id="{{ $id }}" tabindex="-1" aria-hidden="true"
-    class="hidden absolute top-1/2 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
-    <div class="relative p-4 w-full max-w-md max-h-full">
+    class="hidden fixed top-1/2 left-1/2 z-50 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl">
+    <div class="relative p-4 w-full max-w-xl max-h-full">
         <div class="relative bg-white rounded-lg shadow-lg border-2 border-gray-300">
             <div class="flex items-center justify-between p-4 border-b rounded-t">
                 <h3 class="text-xl font-semibold text-gray-900 uppercase">
@@ -27,7 +27,6 @@
                     </button>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
