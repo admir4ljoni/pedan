@@ -2,10 +2,10 @@
 @section('title', 'Sambutan Kepala Sekolah')
 
 @section('content')
-    <div class="mx-12 md:mx-16 mt-12 md:mt-20 ">
-        <h1 class="uppercase font-black text-2xl md:text-3xl text-center mb-14 text-primaryColor">sambutan kepala sekolah SMK negeri 1 PEDAN</h1>
+    <div class="mx-12 md:mx-16 mt-12 md:mt-20">
+        <h1 class="uppercase font-black text-2xl md:text-3xl text-center mb-14 text-primaryColor" data-aos="fade-down" data-aos-duration="1000">sambutan kepala sekolah SMK negeri 1 PEDAN</h1>
         <div class="flex flex-wrap md:flex-row justify-center md:gap-10">
-            <div class="md:w-1/2 order-2 md:order-1 mt-10">
+            <div class="md:w-1/2 order-2 md:order-1 mt-10" data-aos="fade-left" data-aos-duration="2000">
                 <h1 class="text-xl font-semibold">Assalamu’alaikum Warahmatullahi Wabarakaatuh. Salam sejahtera untuk kita
                     semua. Selamat datang di Web SMK Negeri 1 PedanWeb SMK Negeri 1 Pedan merupakan media informasi dan
                     komunikasi baik intern sekolah maupun bagi stakeholder sekolah yang lain. Web sekolah ini diharapkan
@@ -15,7 +15,7 @@
                 <h2 class="font-bold text-gray-600 text-xl mt-4">Drs. Eko Subadri, M.M.</h2>
             </div>
 
-            <div class="md:w-72 order-1 md:order-2 relative w-56 h-56 md:h-80">
+            <div class="md:w-72 order-1 md:order-2 relative w-56 h-56 md:h-80" data-aos="fade-right" data-aos-duration="2000">
                 <img src="/assets/kapsek.png" alt="kepala sekolah smkn1 pedan" class="w-full h-full relative z-10 object-cover" />
                 <svg viewBox="20 2 170 170" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 w-full h-full z-0">
                     <path fill="#E5BC20"

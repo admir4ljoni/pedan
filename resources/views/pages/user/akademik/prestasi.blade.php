@@ -3,11 +3,12 @@
 
 @section('content')
 
-    <div class="mx-12 md:mx-16 mt-12 md:mt-20 ">
-        <h1 class="uppercase font-black text-2xl md:text-3xl text-center mb-14 text-primaryColor">prestasi siswa smk negeri 1
+    <div class="mx-12 md:mx-16 mt-12 md:mt-20">
+        <h1 class="uppercase font-black text-2xl md:text-3xl text-center mb-14 text-primaryColor" data-aos="fade-down"
+            data-aos-duration="1000">prestasi siswa smk negeri 1
             pedan
         </h1>
-        <div class="flex flex-wrap gap-5 justify-center">
+        <div class="flex flex-wrap gap-5 justify-center" data-aos="fade-right" data-aos-duration="2000">
             <x-prestasi image="/assets/lksss.jpeg" title="Juara 1 LKS IT Network Tingkat Kabupaten Klaten"
                 date="1 juni 2023" />
             <x-prestasi image="/assets/batikk.jpg"
