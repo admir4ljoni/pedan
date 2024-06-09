@@ -1,3 +1,39 @@
+INSERT INTO mapels (id, nama_mapel, created_at, updated_at) VALUES 
+(18, "Kepala Sekolah", NOW(), NOW()),
+(2, "Agama Islam", NOW(), NOW()),
+(3, "Agama Kristen", NOW(), NOW()),
+(4, "PPKN", NOW(), NOW()),
+(5, "Bahasa Indonesia", NOW(), NOW()),
+(6, "Matematika", NOW(), NOW()),
+(7, "Sejarah", NOW(), NOW()),
+(8, "Bahasa Inggris", NOW(), NOW()),
+(9, "Seni Budaya", NOW(), NOW()),
+(10, "Olahraga", NOW(), NOW()),
+(11, "IPAS", NOW(), NOW()),
+(12, "Produktif RPL", NOW(), NOW()),
+(13, "Produktif TKJ", NOW(), NOW()),
+(14, "Produktif Akuntansi", NOW(), NOW()),
+(15, "Produktif MPLB", NOW(), NOW()),
+(16, "Produktif Pemasaran", NOW(), NOW()),
+(17, "Bahasa Jawa", NOW(), NOW()),
+(18, "Produktif BK", NOW(), NOW());
+
+INSERT INTO jabatan (id, nama_jabatan, created_at, updated_at) VALUES 
+(1, "Kepala Sekolah", NOW(), NOW()),
+(2, "Plt. Kasubag. TU", NOW(), NOW()),
+(3, "WKS Kurikulum ", NOW(), NOW()),
+(4, "WKS Kesiswaan", NOW(), NOW()),
+(5, "WKS SARPRAS", NOW(), NOW()),
+(6, "Humas dan HKI", NOW(), NOW()),
+(7, "Ka.Prog. Akuntansi", NOW(), NOW()),
+(8, "Ka.Prog Manajemen Perkantoran dan Layanan Bisnis", NOW(), NOW()),
+(9, "Ka.Prog Pemasaran", NOW(), NOW()),
+(10, "Ka.Prog Pengembangan Perangkat Lunak dan Gim", NOW(), NOW()),
+(11, "Ka.Prog Teknik Jaringan Komputer dan Telekomunikasi", NOW(), NOW()),
+(12, "Ka.Prog Broadcasting dan Perfilman", NOW(), NOW());
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
