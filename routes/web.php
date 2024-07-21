@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KesiswaanController;
 use App\Http\Controllers\StrukturOrganisasi;
 use Illuminate\Support\Facades\Route;
 
@@ -142,27 +144,24 @@ Route::get('/admin/prestasi', function () {
 });
 
 // Admin tentang kami (sambutan, visi misi, dll)
-Route::get('/admin/tentang-kami', function () {
-    return view('pages.admin.tentangKami');
-});
+Route::get('/admin/tentang-kami', [AboutUsController::class, 'index'])->name('admin-about-us');
+Route::put('/admin/tentang-kami/update', [AboutUsController::class, 'update'])->name('admin-about-us-update');
 
 // Admin kesiswaan
-Route::get('/admin/kesiswaan', function () {
-    return view('pages.admin.kesiswaan');
-});
+Route::get('/admin/kesiswaan', [KesiswaanController::class, 'index'])->name('admin-kesiswaan');
+Route::put('/admin/kesiswaan/update', [KesiswaanController::class, 'update'])->name('admin-kesiswaan-update');
+
 
 // Admin struktur organisasi
 Route::get('/admin/struktur-organisasi', [StrukturOrganisasi::class, 'index'])->name('admin-struktur-organisasi');
-// Tambah struktur organisasi
 Route::put('/admin/struktur-organisasi/create', [StrukturOrganisasi::class, 'create'])->name('admin-struktur-organisasi-create');
+Route::get('/admin/struktur-organisasi/{id}', [StrukturOrganisasi::class, 'show'])->name('admin-struktur-organisasi-show');
+Route::put('/admin/stuktur-organisasi/update', [StrukturOrganisasi::class, 'update'])->name('admin-struktur-organisasi-update');
+Route::delete('/admin/struktur-organisasi/delete', [StrukturOrganisasi::class, 'delete'])->name('admin-struktur-organisasi-delete');
 
 // Admin daftar guru
 Route::get('/admin/daftar-guru', [GuruController::class, 'index'])->name('admin-daftar-guru');
-// Tambah guru
 Route::post('/admin/daftar-guru/create', [GuruController::class, 'create'])->name('admin-daftar-guru-create');
-// Get info guru
 Route::get('/admin/daftar-guru/{id}', [GuruController::class, 'show'])->name('admin-daftar-guru-show');
-// Edit info guru
 Route::put('/admin/daftar-guru/update', [GuruController::class, 'update'])->name('admin-daftar-guru-update');
-// Delete info guru
 Route::delete('/admin/daftar-guru/delete', [GuruController::class, 'delete'])->name('admin-daftar-guru-delete');

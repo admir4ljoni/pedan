@@ -1,6 +1,6 @@
-@props(['namaIcon' => '',])
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
-    stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+@props(['namaIcon' => '', 'id' => '', 'wks' => ''])
+<svg id="{{ $id }}" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+    stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-wks="{{ $wks }}"
     class="icon icon-tabler icons-tabler-outline icon-tabler-edit{{ $namaIcon }} bg-secondaryColor rounded-md p-1">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />

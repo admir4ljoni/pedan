@@ -52,6 +52,13 @@ class GuruController extends Controller
     {
         $guru = Guru::findOrFail($request->guru_id);
 
+        $request->validate([
+            'editFoto' => 'image|mimes:jpeg,jpg,png,svg|max:2048',
+            'editNama' => 'required|string|max:255',
+            'editNomor' => 'required|string',
+            'editMapel_id' => 'required|exists:mapels,id'
+        ]);
+
         $guru->nama = $request->editNama;
         $guru->nomor_hp = $request->editNomor;
 
@@ -69,7 +76,10 @@ class GuruController extends Controller
         $guru->mapel()->sync($request->editMapel_id);
 
         return redirect()->back()->with('Success', 'data berhasil diubah');
+        // return response()->json($guru);
     }
+
+
 
     public function delete(Request $request)
     {

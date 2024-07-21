@@ -25,4 +25,36 @@ class StrukturOrganisasi extends Controller
 
         return redirect()->back()->with('success', 'data berhasil ditambahkan');
     }
+
+    public function show(string $id)
+    {
+        $guru = Guru::with('jabatan')->findOrFail($id);
+
+        return response()->json($guru);
+    }
+
+    public function update(Request $request)
+    {
+        $guru = Guru::findOrFail($request->guru_id);
+
+        $request->validate([
+            'editNama' => 'required|string|max:255',
+            'editJabatan_id' => 'required|exists:jabatans,id'
+        ]);
+
+        $guru->update([
+            'nama' => $request->editNama,
+            'id_jabatan' => $request->editJabatan_id,
+        ]);
+
+        return redirect()->back()->with('Success', 'data berhasil diubah');
+    }
+
+    public function delete(Request $request)
+    {
+        $guru = Guru::findOrFail($request->guru_id);
+        $guru->id_jabatan = null;
+        $guru->save();
+        return redirect()->back()->with('success', 'data berhasil dihapus');
+    }
 }

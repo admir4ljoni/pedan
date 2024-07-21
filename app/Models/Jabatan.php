@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jabatan extends Model
 {
-    protected $fillable = ['jabatan'];
+    protected $fillable = ['nama_jabatan'];
 
     public function guru()
     {
