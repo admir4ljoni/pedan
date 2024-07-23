@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prestasi extends Model
+class pdf extends Model
 {
-    protected $fillable = [
-        'nama',
-        'gambar',
-        'tanggal_pelaksanaan'
-    ];
+    protected $fillable = ['title', 'file_path'];
 }

@@ -1,9 +1,15 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KesiswaanController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\StrukturOrganisasi;
+use App\Models\Jurusan;
 use Illuminate\Support\Facades\Route;
 
 //User
@@ -83,85 +89,73 @@ Route::get('/detail-berita', function () {
 });
 
 
-// Admin login
-Route::get('/admin', function () {
-    return view('pages.admin.login');
+// Login
+Route::get('/admin', [AdminController::class, 'indexLogin'])->name('login');
+Route::post('/login', [AdminController::class, 'login'])->name('loginActual');
+
+Route::middleware('auth')->group(function () {
+    // Admin register
+    Route::get('/admin/register', [AdminController::class, 'indexRegister'])->name('indexRegister');
+    Route::post('/register', [AdminController::class, 'register'])->name('register');
+
+    // Admin main dashboard
+    Route::get('/admin/program-keahlian', function () {
+        return view('pages.admin.program keahlian.index');
+    });
+
+    // Admin jurusan
+    Route::get('/admin/program-keahlian/akuntansi', [JurusanController::class, 'index'])->name('admin-jurusan-akutansi');
+    Route::get('/admin/program-keahlian/menajemen-perkantoran', [JurusanController::class, 'indexMenajemenPerkantoran'])->name('admin-jurusan-menajemen-perkantoran');
+    Route::get('/admin/program-keahlian/perangkat-lunak', [JurusanController::class, 'indexPerangkatLunak'])->name('admin-jurusan-perangkat-lunak');
+    Route::get('/admin/program-keahlian/teknik-komputer-jaringan', [JurusanController::class, 'indexTeknikKomputerJaringan'])->name('admin-jurusan-teknik-komputer-jaringan');
+    Route::get('/admin/program-keahlian/broadcasting', [JurusanController::class, 'indexBroadcasting'])->name('admin-jurusan-broadcasting');
+    Route::get('/admin/program-keahlian/pemasaran', [JurusanController::class, 'indexPemasaran'])->name('admin-jurusan-pemasaran');
+
+    Route::put('/admin/jurusan/update/{jurusan}', [JurusanController::class, 'update'])->name('admin-jurusan-update');
+    Route::delete('/admin/jurusan/update/{jurusan}', [JurusanController::class, 'delete'])->name('admin-jurusan-delete');
+
+    // Admin jadwal
+    Route::get('/admin/jadwal', [JadwalController::class, 'index'])->name('admin-jadwal');
+    Route::put('/admin/jadwal/create', [JadwalController::class, 'create'])->name('admin-jadwal-create');
+    Route::get('/admin/jadwal/download', [JadwalController::class, 'download'])->name('admin-jadwal-download');
+    Route::delete('/admin/jadwal/delete', [JadwalController::class, 'delete'])->name('admin-jadwal-delete');
+
+    // Admin berita
+    Route::get('/admin/berita', [BeritaController::class, 'index'])->name('admin-berita');
+    Route::post('/admin/berita/create', [BeritaController::class, 'create'])->name('admin-berita-create');
+    Route::get('/admin/berita/{id}', [BeritaController::class, 'show'])->name('admin-berita-show');
+    Route::put('/admin/berita/update', [BeritaController::class, 'update'])->name('admin-berita-update');
+    Route::delete('/admin/berita/delete', [BeritaController::class, 'delete'])->name('admin-berita-delete');
+
+    // Admin prestasi
+    Route::get('/admin/prestasi', [PrestasiController::class, 'index'])->name('admin-prestasi');
+    Route::post('/admin/prestasi/create', [PrestasiController::class, 'create'])->name('admin-prestasi-create');
+    Route::get('/admin/prestasi/{id}', [PrestasiController::class, 'show'])->name('admin-prestasi-show');
+    Route::put('/admin/prestasi/update', [PrestasiController::class, 'update'])->name('admin-prestasi-update');
+    Route::delete('/admin/prestasi/delete', [PrestasiController::class, 'delete'])->name('admin-prestasi-delete');
+
+    // Admin tentang kami (sambutan, visi misi, dll)
+    Route::get('/admin/tentang-kami', [AboutUsController::class, 'index'])->name('admin-about-us');
+    Route::put('/admin/tentang-kami/update', [AboutUsController::class, 'update'])->name('admin-about-us-update');
+
+    // Admin kesiswaan
+    Route::get('/admin/kesiswaan', [KesiswaanController::class, 'index'])->name('admin-kesiswaan');
+    Route::put('/admin/kesiswaan/update', [KesiswaanController::class, 'update'])->name('admin-kesiswaan-update');
+
+
+    // Admin struktur organisasi
+    Route::get('/admin/struktur-organisasi', [StrukturOrganisasi::class, 'index'])->name('admin-struktur-organisasi');
+    Route::put('/admin/struktur-organisasi/create', [StrukturOrganisasi::class, 'create'])->name('admin-struktur-organisasi-create');
+    Route::get('/admin/struktur-organisasi/{id}', [StrukturOrganisasi::class, 'show'])->name('admin-struktur-organisasi-show');
+    Route::put('/admin/stuktur-organisasi/update', [StrukturOrganisasi::class, 'update'])->name('admin-struktur-organisasi-update');
+    Route::delete('/admin/struktur-organisasi/delete', [StrukturOrganisasi::class, 'delete'])->name('admin-struktur-organisasi-delete');
+
+    // Admin daftar guru
+    Route::get('/admin/daftar-guru', [GuruController::class, 'index'])->name('admin-daftar-guru');
+    Route::post('/admin/daftar-guru/create', [GuruController::class, 'create'])->name('admin-daftar-guru-create');
+    Route::get('/admin/daftar-guru/{id}', [GuruController::class, 'show'])->name('admin-daftar-guru-show');
+    Route::put('/admin/daftar-guru/update', [GuruController::class, 'update'])->name('admin-daftar-guru-update');
+    Route::delete('/admin/daftar-guru/delete', [GuruController::class, 'delete'])->name('admin-daftar-guru-delete');
 });
 
-// Admin register
-Route::get('/admin/register', function () {
-    return view('pages.admin.register');
-});
 
-// Admin main dashboard
-Route::get('/admin/program-keahlian', function () {
-    return view('pages.admin.program keahlian.index');
-});
-
-// Admin akutansi
-Route::get('/admin/program-keahlian/akuntansi', function () {
-    return view('pages.admin.program keahlian.akuntansi');
-});
-
-// Admin perkantoran
-Route::get('/admin/program-keahlian/menajemen-perkantoran', function () {
-    return view('pages.admin.program keahlian.menajemenPerkantoran');
-});
-
-// Admin perangkat lunak
-Route::get('/admin/program-keahlian/perangkat-lunak', function () {
-    return view('pages.admin.program keahlian.perangkatLunak');
-});
-
-// Admin komputer jaringan
-Route::get('/admin/program-keahlian/teknik-komputer-jaringan', function () {
-    return view('pages.admin.program keahlian.teknikKomputer');
-});
-
-// Admin broadcasting 
-Route::get('/admin/program-keahlian/broadcasting', function () {
-    return view('pages.admin.program keahlian.broadcasting');
-});
-
-// Admin pemasaran
-Route::get('/admin/program-keahlian/pemasaran', function () {
-    return view('pages.admin.program keahlian.pemasaran');
-});
-
-// Admin jadwal
-Route::get('/admin/jadwal', function () {
-    return view('pages.admin.jadwal');
-});
-
-// Admin berita
-Route::get('/admin/berita', function () {
-    return view('pages.admin.berita');
-});
-
-// Admin prestasi
-Route::get('/admin/prestasi', function () {
-    return view('pages.admin.prestasi');
-});
-
-// Admin tentang kami (sambutan, visi misi, dll)
-Route::get('/admin/tentang-kami', [AboutUsController::class, 'index'])->name('admin-about-us');
-Route::put('/admin/tentang-kami/update', [AboutUsController::class, 'update'])->name('admin-about-us-update');
-
-// Admin kesiswaan
-Route::get('/admin/kesiswaan', [KesiswaanController::class, 'index'])->name('admin-kesiswaan');
-Route::put('/admin/kesiswaan/update', [KesiswaanController::class, 'update'])->name('admin-kesiswaan-update');
-
-
-// Admin struktur organisasi
-Route::get('/admin/struktur-organisasi', [StrukturOrganisasi::class, 'index'])->name('admin-struktur-organisasi');
-Route::put('/admin/struktur-organisasi/create', [StrukturOrganisasi::class, 'create'])->name('admin-struktur-organisasi-create');
-Route::get('/admin/struktur-organisasi/{id}', [StrukturOrganisasi::class, 'show'])->name('admin-struktur-organisasi-show');
-Route::put('/admin/stuktur-organisasi/update', [StrukturOrganisasi::class, 'update'])->name('admin-struktur-organisasi-update');
-Route::delete('/admin/struktur-organisasi/delete', [StrukturOrganisasi::class, 'delete'])->name('admin-struktur-organisasi-delete');
-
-// Admin daftar guru
-Route::get('/admin/daftar-guru', [GuruController::class, 'index'])->name('admin-daftar-guru');
-Route::post('/admin/daftar-guru/create', [GuruController::class, 'create'])->name('admin-daftar-guru-create');
-Route::get('/admin/daftar-guru/{id}', [GuruController::class, 'show'])->name('admin-daftar-guru-show');
-Route::put('/admin/daftar-guru/update', [GuruController::class, 'update'])->name('admin-daftar-guru-update');
-Route::delete('/admin/daftar-guru/delete', [GuruController::class, 'delete'])->name('admin-daftar-guru-delete');

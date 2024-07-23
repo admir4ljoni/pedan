@@ -10,11 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('prestasis', function (Blueprint $table) {
+        Schema::create('profil_jurusans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('gambar');
-            $table->date('tanggal_pelaksanaan');
+            $table->string('isi');
+            $table->unsignedBigInteger('jurusan_id');
+
+            $table->foreign('jurusan_id')->references('id')->on('jurusans');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('prestasis');
+        Schema::dropIfExists('profil_jurusans');
     }
 };

@@ -18,9 +18,10 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+            <form class="space-y-6" action="{{route('loginActual')}}" method="POST">
+                @csrf
                 <div class="">
-                    <x-input id="email" name="email" type="email" title="Email Address" required />
+                    <x-input id="email" name="email" type="email" title="Email address" required />
                     <x-input id="password" name="password" type="password" title="password" required />
                 </div>
                 <div>

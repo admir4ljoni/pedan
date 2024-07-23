@@ -18,10 +18,15 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+            <form class="space-y-6" action="{{route('register')}}" method="POST">
+                @csrf
                 <div class="">
+                    <x-input id="name" name="name" type="name" title="Username" required />
                     <x-input id="email" name="email" type="email" title="Email Address" required />
-                    <x-input id="password" name="password" type="password" title="password" required />
+                    <x-input id="password" name="password" type="password" title="Password" required />
+                    <x-input id="password_confirmation" name="password_confirmation" type="password"
+                        title="Reenter password" required />
+
                 </div>
                 <div>
                     <button type="submit"
