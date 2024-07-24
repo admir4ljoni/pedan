@@ -6,8 +6,15 @@ use App\Models\About;
 use App\Models\AboutImage;
 use App\Models\Berita;
 use App\Models\Guru;
+use App\Models\JurusanImage;
 use App\Models\KesiswaanImage;
+use App\Models\MateriJurusan;
+use App\Models\Pdf;
 use App\Models\Pivot_Guru_Mapel;
+use App\Models\Prestasi;
+use App\Models\ProfilJurusan;
+use App\Models\ProspekJurusan;
+use App\Models\VisiMisiJurusan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -91,5 +98,63 @@ class HomeController extends Controller
         ];
 
         return view('pages.user.akademik.pendidik', $data);
+    }
+
+    public function jadwal()
+    {
+        $data = Pdf::first();
+        return view('pages.user.akademik.jadwal', ['data' => $data]);
+    }
+
+    public function prestasi()
+    {
+        $data = Prestasi::get();
+        return view('pages.user.akademik.prestasi', ['data' => $data]);
+    }
+
+    public function jurusan(Request $request)
+    {
+        $segment = $request->segment(1);
+        $route = [
+            'akutansi' => 'akuntansi',
+            'perkantoran' => 'menajemenPerkantoran',
+            'pemasaran' => 'pemasaran',
+            'pplg' => 'perangkatLunak',
+            'tkj' => 'teknikKomputer',
+            'broadcasting' => 'broadcasting',
+        ];
+        $jurusan = [
+            'akutansi' => 1,
+            'perkantoran' => 2,
+            'pplg' => 3,
+            'tkj' => 4,
+            'broadcasting' => 5,
+            'pemasaran' => 6,
+        ];
+        $jurusanId = $jurusan[$segment];
+
+        $data = [
+            'profil' => ProfilJurusan::where('jurusan_id', $jurusanId)->first(),
+            'visiMisi' => VisiMisiJurusan::where('jurusan_id', $jurusanId)->first(),
+            'materi' => MateriJurusan::where('jurusan_id', $jurusanId)->first(),
+            'prospek' => ProspekJurusan::where('jurusan_id', $jurusanId)->first(),
+            'foto' => JurusanImage::where('jurusan_id', $jurusanId)->get()
+        ];
+
+        if (array_key_exists($segment, $route)) {
+            $view = 'pages.user.program keahlian.' . $route[$segment];
+        } else {
+            return response()->json('error', 'error');
+        }
+
+        return view($view, $data);
+    }
+
+    public function berita(string $id)
+    {
+        $data = Berita::find($id);
+        $otherData = Berita::take(5)->get();
+
+        return view('pages.user.berita.detailBerita', ['data' => $data, 'otherData' => $otherData]);
     }
 }

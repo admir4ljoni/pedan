@@ -1,24 +1,24 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Mobile toggle
         const navbarToggle = document.querySelector("[data-collapse-toggle='navbar-dropdown']");
         const navbarMenu = document.getElementById("navbar-dropdown");
-        navbarToggle.addEventListener("click", function() {
+        navbarToggle.addEventListener("click", function () {
             navbarMenu.classList.toggle("hidden");
         });
 
         // Fungsi untuk menangani perilaku dropdown
         function handleDropdown(dropdownToggle, dropdownMenu) {
-            dropdownToggle.addEventListener("mouseover", function() {
+            dropdownToggle.addEventListener("mouseover", function () {
                 dropdownMenu.classList.remove("hidden");
             });
-            dropdownToggle.addEventListener("mouseout", function() {
+            dropdownToggle.addEventListener("mouseout", function () {
                 dropdownMenu.classList.add("hidden");
             });
-            dropdownMenu.addEventListener("mouseover", function() {
+            dropdownMenu.addEventListener("mouseover", function () {
                 dropdownMenu.classList.remove("hidden");
             });
-            dropdownMenu.addEventListener("mouseout", function() {
+            dropdownMenu.addEventListener("mouseout", function () {
                 dropdownMenu.classList.add("hidden");
             });
         }
@@ -50,8 +50,7 @@
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-secondaryColor rounded-lg md:hidden focus:outline-none"
             aria-controls="navbar-dropdown" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 17 14">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
@@ -116,31 +115,31 @@
                         class="absolute left-0 w-56 z-50 mt-1 hidden font-normal bg-secondaryColor divide-y divide-gray-100 rounded-lg shadow">
                         <ul class="py-2 text-sm w-56 text-gray-700" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="/akuntansi-keuangan-lembaga"
+                                <a href="{{route('akutansi')}}"
                                     class="block px-4 py-2 hover:bg-gray-50 text-black font-semibold text-base">Akuntansi
                                     & Keuangan Lembaga</a>
                             </li>
                             <li>
-                                <a href="/menajemen-perkantoran"
+                                <a href="{{route('perkantoran')}}"
                                     class="block px-4 py-2 hover:bg-gray-50 text-black font-semibold text-base">Manajemen
                                     Perkantoran & Layanan Bisnis</a>
                             </li>
                             <li>
-                                <a href="/pemasaran"
+                                <a href="{{route('pemasaran')}}"
                                     class="block px-4 py-2 hover:bg-gray-50 text-black font-semibold text-base">Pemasaran</a>
                             </li>
                             <li>
-                                <a href="/pengembangan-perangkat-lunak"
+                                <a href="{{route('pplg')}}"
                                     class="block px-4 py-2 hover:bg-gray-50 text-black font-semibold text-base">Pengembangan
                                     Perangkat Lunak & Gim </a>
                             </li>
                             <li>
-                                <a href="/teknik-komputer-jaringan"
+                                <a href="{{route('tkj')}}"
                                     class="block px-4 py-2 hover:bg-gray-50 text-black font-semibold text-base">Teknik
                                     Komputer Jaringan & Telekomunikasi</a>
                             </li>
                             <li>
-                                <a href="/broadcasting"
+                                <a href="{{route('broadcasting')}}"
                                     class="block px-4 py-2 hover:bg-gray-50 text-black font-semibold text-base">Broadcasting
                                     & Perfilman</a>
                             </li>

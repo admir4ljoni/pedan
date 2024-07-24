@@ -62,7 +62,7 @@
                     <span class="text-gray-500 hover:text-gray-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="#d70000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash-activate">
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
                             <path stroke=" none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M4 7l16 0" />
                             <path d="M10 11l0 6" />
@@ -124,7 +124,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         // fungsi untuk modal delete
         const modal = document.getElementById('popup-modal');
-        const iconTrash = document.querySelector('.icon-tabler-trash-activate');
+        const iconTrash = document.querySelector('.icon-tabler-trash');
         iconTrash.addEventListener('click', function () {
             modal.classList.remove('hidden');
         });

@@ -1,4 +1,4 @@
-<a class="group block rounded-xl" href="/detail-berita">
+<a class="group block rounded-xl" href={{$link}}>
     <div class="aspect-w-16 aspect-h-6">
         <img class="w-full h-56 object-cover rounded-xl" src="{{ $image }}" alt="preview berita">
     </div>

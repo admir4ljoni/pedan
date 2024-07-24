@@ -176,7 +176,8 @@
         </h1>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-left" data-aos-duration="1000">
             @forelse ($data as $berita)
-                <x-berita title="{{$berita->judul}}" date="{{$berita->tanggal_pembuatan}}"
+                <x-berita link="{{route('berita', ['id' => $berita->id])}}" title="{{$berita->judul}}"
+                    date="{{$berita->tanggal_pembuatan}}"
                     image="{{Storage::url('public/storages/berita/' . $berita->gambar)}}" />
             @empty
                 <x-berita title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptatum."

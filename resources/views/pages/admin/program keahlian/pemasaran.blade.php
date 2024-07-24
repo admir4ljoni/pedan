@@ -115,47 +115,78 @@
     </div>
     <div class="mb-14">
         <h3 class="text-xl font-extrabold uppercase mb-4">profil jurusan</h3>
-        <x-cardAdmin2
-            desc="lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ea illum aperiam
-            dolore molestiae id nulla ex architecto deleniti rem officiis enim natus modi quidem cupiditate itaque quasi, iusto">
-            <x-slot name="icon">
-                <x-iconEdit />
-            </x-slot>
-        </x-cardAdmin2>
+        @if($profil)
+            <x-cardAdmin2 desc="{{$profil->isi}}">
+                <x-slot name="icon">
+                    <x-iconEdit />
+                </x-slot>
+            </x-cardAdmin2>
+        @else
+            <x-cardAdmin2
+                desc="lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ea illum aperiamdolore molestiae id nulla ex architecto deleniti rem officiis enim natus modi quidem cupiditate itaque quasi, iusto">
+                <x-slot name="icon">
+                    <x-iconEdit />
+                </x-slot>
+            </x-cardAdmin2>
+        @endif
     </div>
-
     <div class="mb-14">
         <h3 class="text-xl font-extrabold uppercase mb-4">visi & misi jurusan</h3>
-        <x-cardAdmin2 :showList="true" :list="['Item 1', 'Item 2', 'Item 3']">
-            <x-slot name="icon">
-                <x-iconEdit namaIcon="-visi" />
-            </x-slot>
-        </x-cardAdmin2>
+        @if($visiMisi)
+            <x-cardAdmin2 :showList="true" :list="$visiMisi">
+                <x-slot name="icon">
+                    <x-iconEdit namaIcon="-visi" />
+                </x-slot>
+            </x-cardAdmin2>
+        @else
+            <x-cardAdmin2 :showList="true" :list="['Item 1', 'Item 2', 'Item 3']">
+                <x-slot name="icon">
+                    <x-iconEdit namaIcon="-visi" />
+                </x-slot>
+            </x-cardAdmin2>
+        @endif
+
     </div>
 
     <div class="mb-14">
         <h3 class="text-xl font-extrabold uppercase mb-4">materi jurusan</h3>
-        <x-cardAdmin2 :showList="true" :list="['Item 1', 'Item 2', 'Item 3']">
-            <x-slot name="icon">
-                <x-iconEdit namaIcon="-materi" />
-            </x-slot>
-        </x-cardAdmin2>
+        @if($materi)
+            <x-cardAdmin2 :showList="true" :list="$materi">
+                <x-slot name="icon">
+                    <x-iconEdit namaIcon="-materi" />
+                </x-slot>
+            </x-cardAdmin2>
+        @else
+            <x-cardAdmin2 :showList="true" :list="['Item 1', 'Item 2', 'Item 3']">
+                <x-slot name="icon">
+                    <x-iconEdit namaIcon="-materi" />
+                </x-slot>
+            </x-cardAdmin2>
+        @endif
     </div>
 
     <div class="mb-14">
         <h3 class="text-xl font-extrabold uppercase mb-4">prospek kerja jurusan</h3>
-        <x-cardAdmin2 :showList="true" :list="['Item 1', 'Item 2', 'Item 3']">
-            <x-slot name="icon">
-                <x-iconEdit namaIcon="-prospek" />
-            </x-slot>
-        </x-cardAdmin2>
+        @if($prospek)
+            <x-cardAdmin2 :showList="true" :list="$prospek">
+                <x-slot name="icon">
+                    <x-iconEdit namaIcon="-prospek" />
+                </x-slot>
+            </x-cardAdmin2>
+        @else
+            <x-cardAdmin2 :showList="true" :list="['Item 1', 'Item 2', 'Item 3']">
+                <x-slot name="icon">
+                    <x-iconEdit namaIcon="-prospek" />
+                </x-slot>
+            </x-cardAdmin2>
+        @endif
     </div>
 
     <div class="mb-14">
-        <h3 class="text-xl font-extrabold uppercase mb-4">foto jurusan</h3>
+        <h3 class="text-xl font-extrabold uppercase mb-4">foto jurusan (maksimal 5 gambar)</h3>
         <x-buttonAdmin id="tambahFoto" title="Tambah Foto" />
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            @forelse($data->where('jurusan_id', 6) as $gambar)
+            @forelse($data as $gambar)
                 <x-cardAdmin1 image="{{Storage::url('public/storages/jurusan/' . $gambar->isi)}}" :showDividerLine="false">
                     <x-slot name="icon2">
                         <x-iconHapus wks="{{$gambar->id}}" />
@@ -163,9 +194,6 @@
                 </x-cardAdmin1>
             @empty
                 <x-cardAdmin1 image="/assets/batikk.jpg" :showDividerLine="false">
-                    <x-slot name="icon2">
-                        <x-iconHapus />
-                    </x-slot>
                 </x-cardAdmin1>
             @endforelse
         </div>

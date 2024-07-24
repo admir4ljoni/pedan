@@ -25,55 +25,24 @@ Route::get('/visi-misi', [HomeController::class, 'visiMisi'])->name('user-visi-m
 Route::get('/struktur-organisasi', [HomeController::class, 'strukturOrganisasi'])->name('user-struktur-organisasi');
 // Kesiswaan
 Route::get('/kesiswaan', [HomeController::class, 'kesiswaan'])->name('user-kesiswaan');
-
 // Pendidik
 Route::get('/pendidik', [HomeController::class, 'pendidik'])->name('user-pendidik');
-
 // Jadwal
-Route::get('/jadwal', function () {
-    return view('pages.user.akademik.jadwal');
-});
+Route::get('/jadwal', [HomeController::class, 'jadwal'])->name('user-jadwal');
 
 // Prestasi
-Route::get('/prestasi', function () {
-    return view('pages.user.akademik.prestasi');
-});
+Route::get('/prestasi', [HomeController::class, 'prestasi'])->name('user-prestasi');
 
-// Jurusan akutansi
-Route::get('/akuntansi-keuangan-lembaga', function () {
-    return view('pages.user.program keahlian.akuntansi');
-});
-
-// Jurusan manajemen perkantoran
-Route::get('/menajemen-perkantoran', function () {
-    return view('pages.user.program keahlian.menajemenPerkantoran');
-});
-
-// Jurusan pemasaran
-Route::get('/pemasaran', function () {
-    return view('pages.user.program keahlian.pemasaran');
-});
-
-// Jurusn perangkat lunak
-Route::get('/pengembangan-perangkat-lunak', function () {
-    return view('pages.user.program keahlian.perangkatLunak');
-});
-
-// Jurusan komputer jaringan
-Route::get('/teknik-komputer-jaringan', function () {
-    return view('pages.user.program keahlian.teknikKomputer');
-});
-
-// Jurusan broadcasting
-Route::get('/broadcasting', function () {
-    return view('pages.user.program keahlian.broadcasting');
-});
+// Jurusan
+Route::get('/akutansi', [HomeController::class, 'jurusan'])->name('akutansi');
+Route::get('/perkantoran', [HomeController::class, 'jurusan'])->name('perkantoran');
+Route::get('/pemasaran', [HomeController::class, 'jurusan'])->name('pemasaran');
+Route::get('/pplg', [HomeController::class, 'jurusan'])->name('pplg');
+Route::get('/tkj', [HomeController::class, 'jurusan'])->name('tkj');
+Route::get('/broadcasting', [HomeController::class, 'jurusan'])->name('broadcasting');
 
 // Berita
-Route::get('/detail-berita', function () {
-    return view('pages.user.berita.detailBerita');
-});
-
+Route::get('/detail-berita/{id}', [HomeController::class, 'berita'])->name('berita');
 
 // Login
 Route::get('/admin', [AdminController::class, 'indexLogin'])->name('login');
@@ -90,12 +59,12 @@ Route::middleware('auth')->group(function () {
     });
 
     // Admin jurusan
-    Route::get('/admin/program-keahlian/akuntansi', [JurusanController::class, 'index'])->name('admin-jurusan-akutansi');
-    Route::get('/admin/program-keahlian/menajemen-perkantoran', [JurusanController::class, 'indexMenajemenPerkantoran'])->name('admin-jurusan-menajemen-perkantoran');
-    Route::get('/admin/program-keahlian/perangkat-lunak', [JurusanController::class, 'indexPerangkatLunak'])->name('admin-jurusan-perangkat-lunak');
-    Route::get('/admin/program-keahlian/teknik-komputer-jaringan', [JurusanController::class, 'indexTeknikKomputerJaringan'])->name('admin-jurusan-teknik-komputer-jaringan');
-    Route::get('/admin/program-keahlian/broadcasting', [JurusanController::class, 'indexBroadcasting'])->name('admin-jurusan-broadcasting');
-    Route::get('/admin/program-keahlian/pemasaran', [JurusanController::class, 'indexPemasaran'])->name('admin-jurusan-pemasaran');
+    Route::get('/admin/program-keahlian/akutansi', [JurusanController::class, 'index'])->name('admin-jurusan-akutansi');
+    Route::get('/admin/program-keahlian/perkantoran', [JurusanController::class, 'index'])->name('admin-jurusan-menajemen-perkantoran');
+    Route::get('/admin/program-keahlian/pplg', [JurusanController::class, 'index'])->name('admin-jurusan-perangkat-lunak');
+    Route::get('/admin/program-keahlian/tkj', [JurusanController::class, 'index'])->name('admin-jurusan-teknik-komputer-jaringan');
+    Route::get('/admin/program-keahlian/broadcasting', [JurusanController::class, 'index'])->name('admin-jurusan-broadcasting');
+    Route::get('/admin/program-keahlian/pemasaran', [JurusanController::class, 'index'])->name('admin-jurusan-pemasaran');
 
     Route::put('/admin/jurusan/update/{jurusan}', [JurusanController::class, 'update'])->name('admin-jurusan-update');
     Route::delete('/admin/jurusan/update/{jurusan}', [JurusanController::class, 'delete'])->name('admin-jurusan-delete');
