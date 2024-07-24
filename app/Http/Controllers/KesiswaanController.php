@@ -47,7 +47,7 @@ class KesiswaanController extends Controller
                 $wksImage = KesiswaanImage::where('id', $wksId_index)->where('kesiswaan_id', $wks_id)->first();
 
                 if ($wksImage) {
-                    Storage::delete('public/storages/wks' . $wksImage->gambar);
+                    Storage::delete('public/storages/wks/' . $wksImage->gambar);
 
                     $wksImage->update(['gambar' => $hashedImage]);
                 } else {

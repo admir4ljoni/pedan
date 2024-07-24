@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KesiswaanController;
@@ -15,33 +16,18 @@ use Illuminate\Support\Facades\Route;
 //User
 
 // Home
-Route::get('/', function () {
-    return view('pages.user.home.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('user-index');
 // Sambutan
-Route::get('/sambutan-kepala-sekolah', function () {
-    return view('pages.user.tentang kami.sambutan');
-});
-
+Route::get('/sambutan-kepala-sekolah', [HomeController::class, 'sambutan'])->name('user-sambutan');
 // Visi misi
-Route::get('/visi-misi', function () {
-    return view('pages.user.tentang kami.visiMisi');
-});
-
-// Kesiswaan
-Route::get('/kesiswaan', function () {
-    return view('pages.user.kesiswaan.kesiswaan');
-});
-
+Route::get('/visi-misi', [HomeController::class, 'visiMisi'])->name('user-visi-misi');
 // Struktur organisasi
-Route::get('/struktur-organisasi', function () {
-    return view('pages.user.tentang kami.strukturOrganisasi');
-});
+Route::get('/struktur-organisasi', [HomeController::class, 'strukturOrganisasi'])->name('user-struktur-organisasi');
+// Kesiswaan
+Route::get('/kesiswaan', [HomeController::class, 'kesiswaan'])->name('user-kesiswaan');
 
 // Pendidik
-Route::get('/pendidik', function () {
-    return view('pages.user.akademik.pendidik');
-});
+Route::get('/pendidik', [HomeController::class, 'pendidik'])->name('user-pendidik');
 
 // Jadwal
 Route::get('/jadwal', function () {

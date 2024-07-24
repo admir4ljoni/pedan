@@ -19,26 +19,36 @@ class GuruController extends Controller
 
     public function create(Request $request)
     {
-        $request->validate([
-            'nama' => 'required|string|max:255',
-            'foto' => 'required|image|mimes:jpeg,jpg,png,svg|max:2048',
-            'nomor' => 'required|string',
-            'mapel_id' => 'required|exists:mapels,id'
-        ]);
+        try {
+            $jabatan = "";
+            $request->validate([
+                'nama' => 'required|string|max:255',
+                'foto' => 'required|image|mimes:jpeg,jpg,png,svg|max:4096',
+                'nomor' => 'required|string',
+                'mapel_id' => 'required|exists:mapels,id'
+            ]);
 
-        $hashFoto = $request->file('foto')->hashName();
-        $pathFoto = $request->file('foto')->storeAs('public/images', $hashFoto);
+            $hashFoto = $request->file('foto')->hashName();
+            $pathFoto = $request->file('foto')->storeAs('public/images', $hashFoto);
 
-        $guru = Guru::create([
-            'nama' => $request->nama,
-            'gambar' => $hashFoto,
-            'nomor_hp' => $request->nomor,
-            'id_jabatan' => null
-        ]);
+            if ($request->mapel_id != 1) {
+                $jabatan = null;
+            } else {
+                $jabatan = 1;
+            }
+            $guru = Guru::create([
+                'nama' => $request->nama,
+                'gambar' => $hashFoto,
+                'nomor_hp' => $request->nomor,
+                'id_jabatan' => $jabatan
+            ]);
 
-        $guru->mapel()->attach($request->mapel_id);
+            $guru->mapel()->attach($request->mapel_id);
 
-        return redirect()->route('admin-daftar-guru')->with('success', 'data berhasil ditambah');
+            return redirect()->route('admin-daftar-guru')->with('success', 'data berhasil ditambah');
+        } catch (\Exception $e) {
+            return response()->json($e->getMessage());
+        }
     }
 
     public function show(string $id)
