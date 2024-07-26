@@ -42,19 +42,19 @@
                     </h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="/sambutan-kepala-sekolah"
+                            <a href="{{route('user-sambutan')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor">
                                 Sambutan Kepala Sekolah
                             </a>
                         </li>
                         <li>
-                            <a href="/visi-misi"
+                            <a href="{{route('user-visi-misi')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Visi Misi
                             </a>
                         </li>
                         <li>
-                            <a href="/struktur-organisasi"
+                            <a href="{{route('user-struktur-organisasi')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Struktur Organisasi
                             </a>
@@ -69,25 +69,25 @@
                     </h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="/pendidik"
+                            <a href="{{route('user-pendidik')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Pendidik
                             </a>
                         </li>
                         <li>
-                            <a href="/prestasi"
+                            <a href="{{route('user-prestasi')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Prestasi
                             </a>
                         </li>
                         <li>
-                            <a href="/jadwal"
+                            <a href="{{route('user-jadwal')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Kaldik & Jadwal
                             </a>
                         </li>
                         <li>
-                            <a href="/kesiswaan"
+                            <a href="{{route('user-kesiswaan')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Kesiswaan
                             </a>
@@ -102,37 +102,37 @@
                     </h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="/akuntansi-keuangan-lembaga"
+                            <a href="{{route('akutansi')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Akutansi & Keuangan Lembaga
                             </a>
                         </li>
                         <li>
-                            <a href="/menajemen-perkantoran"
+                            <a href="{{route('perkantoran')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Manajemen Perkantoran & Layanan Bisnis
                             </a>
                         </li>
                         <li>
-                            <a href="/pemasaran"
+                            <a href="{{route('pemasaran')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 pemasaran
                             </a>
                         </li>
                         <li>
-                            <a href="/pengembangan-perangkat-lunak"
+                            <a href="{{route('pplg')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Pengembangan Perangkat Lunak & Gim
                             </a>
                         </li>
                         <li>
-                            <a href="/teknik-komputer-jaringan"
+                            <a href="{{route('tkj')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Teknik Komputer Jaringan & Telekomunikasi
                             </a>
                         </li>
                         <li>
-                            <a href="/broadcasting"
+                            <a href="{{route('broadcasting')}}"
                                 class="inline-block text-md md:text-lg leading-loose text-white hover:text-secondaryColor ">
                                 Broadcasting & Perfilman
                             </a>
@@ -154,8 +154,8 @@
                             </svg>
                         </a>
                         <a href="https://www.youtube.com/c/SMKN1PEDAN"
-                        class="flex items-center justify-center w-8 h-8 mr-3 border rounded-full text-white hover:border-secondaryColor hover:bg-secondaryColor hover:text-black border-stroke sm:mr-4 lg:mr-3 xl:mr-4">
-                        <svg width="16" height="12" viewBox="0 0 16 12" class="fill-current">
+                            class="flex items-center justify-center w-8 h-8 mr-3 border rounded-full text-white hover:border-secondaryColor hover:bg-secondaryColor hover:text-black border-stroke sm:mr-4 lg:mr-3 xl:mr-4">
+                            <svg width="16" height="12" viewBox="0 0 16 12" class="fill-current">
                                 <path
                                     d="M15.6645 1.88018C15.4839 1.13364 14.9419 0.552995 14.2452 0.359447C13.0065 6.59222e-08 8 0 8 0C8 0 2.99355 6.59222e-08 1.75484 0.359447C1.05806 0.552995 0.516129 1.13364 0.335484 1.88018C0 3.23502 0 6 0 6C0 6 0 8.79263 0.335484 10.1198C0.516129 10.8664 1.05806 11.447 1.75484 11.6406C2.99355 12 8 12 8 12C8 12 13.0065 12 14.2452 11.6406C14.9419 11.447 15.4839 10.8664 15.6645 10.1198C16 8.79263 16 6 16 6C16 6 16 3.23502 15.6645 1.88018ZM6.4 8.57143V3.42857L10.5548 6L6.4 8.57143Z" />
                             </svg>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use Exception;
 use Illuminate\Http\Request;
 use App\Models\About;
@@ -18,7 +19,8 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        return view('pages.admin.tentangKami');
+        $data = Guru::where('id_jabatan', 1)->first();
+        return view('pages.admin.tentangKami', ['data' => $data]);
     }
 
     public function update(Request $request)

@@ -83,9 +83,15 @@
             <div class=" relative border-2 border-gray-200 w-full h-auto rounded-lg p-5">
                 <div class="flex justify-between">
                     <div class="flex flex-col md:flex-row gap-5 justify-center items-center">
-                        <img src="/assets/kapsek.png" alt="foto kapsek"
-                            class="rounded-lg w-20 h-20 object-cover border-2 border-gray-200" />
-                        <p class="text-lg font-bold">Drs H. Firdaus, M.Pd</p>
+                        @if($data)
+                            <img src="{{Storage::url('public/images/' . $data->gambar)}}" alt="foto kapsek"
+                                class="rounded-lg w-20 h-20 object-cover border-2 border-gray-200" />
+                            <p class="text-lg font-bold">{{$data->nama}}</p>
+                        @else
+                            <img src="/assets/kapsek.png" alt="foto kapsek"
+                                class="rounded-lg w-20 h-20 object-cover border-2 border-gray-200" />
+                            <p class="text-lg font-bold">Drs H. Firdaus, M.Pd</p>
+                        @endif
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
                         stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
