@@ -48,10 +48,11 @@ Route::get('/detail-berita/{id}', [HomeController::class, 'berita'])->name('beri
 Route::get('/admin', [AdminController::class, 'indexLogin'])->name('login');
 Route::post('/login', [AdminController::class, 'login'])->name('loginActual');
 
+Route::get('/admin/register', [AdminController::class, 'indexRegister'])->name('indexRegister');
+Route::post('/register', [AdminController::class, 'register'])->name('register');
+
 Route::middleware('auth')->group(function () {
     // Admin register
-    Route::get('/admin/register', [AdminController::class, 'indexRegister'])->name('indexRegister');
-    Route::post('/register', [AdminController::class, 'register'])->name('register');
 
     // Admin main dashboard
     Route::get('/admin/program-keahlian', function () {
