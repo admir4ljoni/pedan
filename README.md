@@ -1,5 +1,5 @@
 INSERT INTO mapels (id, nama_mapel, created_at, updated_at) VALUES
-(18, "Kepala Sekolah", NOW(), NOW()),
+(1, "Kepala Sekolah", NOW(), NOW()),
 (2, "Agama Islam", NOW(), NOW()),
 (3, "Agama Kristen", NOW(), NOW()),
 (4, "PPKN", NOW(), NOW()),
@@ -33,6 +33,8 @@ INSERT INTO jabatans (id, nama_jabatan, created_at, updated_at) VALUES
 (12, "Ka.Prog Broadcasting dan Perfilman", NOW(), NOW());
 
 INSERT INTO `jurusans`(`id`, `nama`, `created_at`, `updated_at`) VALUES (1, "akutansi", NOW(), NOW()), (2, "perkantoran", NOW(), NOW()), (3, "pplg", NOW(), NOW()), (4, "tkj", NOW(), NOW()), (5, "broadcasting", NOW(), NOW()), (6, "pemasaran", NOW(), NOW());
+
+INSERT INTO users (id, name, email, email_verified_at, password, remember_token, created_at, updated_at) VALUES (1, 'admin', 'admin@gmail.com', null, 'adminPedan123!', null, NOW(), NOW());
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
